@@ -24,6 +24,7 @@ resource "aws_rds_cluster" "this" {
   }
   final_snapshot_identifier = "${var.prefix}-${var.environment}-${random_string.snapshot_suffix.result}"
   tags                      = var.tags
+  iam_database_authentication_enabled = true
 }
 
 resource "aws_db_subnet_group" "this" {
